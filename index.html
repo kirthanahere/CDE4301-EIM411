@@ -1,232 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Project Title</title>
-  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EIM411 Final Report</title>
+  <style>
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/themes/light.css" />
-  <script type="module"
-    src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/shoelace-autoloader.js"></script>
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 11pt;
+      line-height: 1.75;
+      color: #1a1a1a;
+      background: #f5f4f0;
+      padding: 2rem 1rem;
+    }
 
-  <link rel="stylesheet" href="./index.css">
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 56pt 72pt;
+      box-shadow: 0 2px 18px rgba(0,0,0,.12);
+      border-radius: 2px;
+    }
 
-  <link rel="stylesheet" href="./components/team-member/team-member.css">
-  <script type="module" src="./components/team-member/team-member.js"></script>
+    /* ── Headings ── */
+    h1 {
+      font-size: 18pt;
+      font-weight: 700;
+      color: #1a3a5c;
+      border-bottom: 2.5px solid #1a3a5c;
+      padding-bottom: .35em;
+      margin-top: 2.4em;
+      margin-bottom: .8em;
+      page-break-after: avoid;
+    }
 
-  <link rel="stylesheet" href="./components/table-of-content/table-of-content.css">
+    h2 {
+      font-size: 13.5pt;
+      font-weight: 700;
+      color: #2b5082;
+      margin-top: 1.8em;
+      margin-bottom: .5em;
+      page-break-after: avoid;
+    }
 
-  <script type="module" src="./components/image/image-component.js"></script>
+    h3 {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #3a6ba8;
+      margin-top: 1.4em;
+      margin-bottom: .4em;
+    }
 
-  <script type="module" src="./components/video/video.js"></script>
+    h4 {
+      font-size: 11pt;
+      font-weight: 700;
+      font-style: italic;
+      color: #4a7bbf;
+      margin-top: 1.2em;
+      margin-bottom: .3em;
+    }
 
-  <link rel="stylesheet" href="./components/references/references.css">
+    /* ── Body text ── */
+    p {
+      margin-bottom: 1em;
+      text-align: justify;
+      hyphens: auto;
+    }
 
-  <link rel="stylesheet" href="./components/scroll-to-top/scroll-to-top.css">
-  <script src="./components/scroll-to-top/scroll-to-top.js"></script>
+    /* ── Lists ── */
+    ul, ol {
+      margin-left: 1.8em;
+      margin-bottom: 1em;
+    }
+    li {
+      margin-bottom: .35em;
+    }
 
-  <script src="./components/table-component/table-component.js"></script>
+    /* ── Tables ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2em 0;
+      font-size: 10pt;
+    }
+    th {
+      background: #1a3a5c;
+      color: #fff;
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 7px 12px;
+      border: 1px solid #d0d8e8;
+    }
+    tr:nth-child(even) td { background: #f0f4fb; }
 
-  <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    /* ── Cover page ── */
+    .cover {
+      text-align: center;
+      padding: 60pt 0 40pt;
+      border-bottom: 2.5px solid #1a3a5c;
+      margin-bottom: 2.5em;
+    }
+    .cover h1 {
+      border: none;
+      font-size: 24pt;
+      margin-top: 0;
+      color: #1a3a5c;
+    }
+    .cover p {
+      text-align: center;
+      color: #444;
+      margin-bottom: .3em;
+    }
+
+    /* ── References ── */
+    .references p {
+      text-align: left;
+      font-size: 10pt;
+      margin-bottom: .5em;
+      padding-left: 1.8em;
+      text-indent: -1.8em;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: white; padding: 0; }
+      .page { box-shadow: none; padding: 0; }
+    }
+  </style>
 </head>
-
 <body>
-  <div class="content">
-    <h1>Project Title</h1>
+<div class="page">
 
-    <!-- This is the team member component use to display details about your team members -->
-    <div class="team-member-wrapper">
-      <team-member avatar="assets/blackranger.png" name="Black" department="Mechanical Engineering"
-        year="1993"></team-member>
-      <team-member avatar="assets/yellowranger.png" name="Yellow" department="Computer Engineering"
-        year="1993"></team-member>
-      <team-member avatar="assets/redranger.png" name="Red" department="Electrical Engineering"
-        year="1993"></team-member>
-      <team-member avatar="assets/pinkranger.png" name="Pink" department="Biomedical Engineering"
-        year="1993"></team-member>
-      <team-member avatar="assets/blueranger.png" name="Blue" department="Chemical Engineering"
-        year="1993"></team-member>
-    </div>
+<div class="cover"><h1>Cover Page</h1>
+<h1>Acknowledgements</h1>
+<h1></h1>
+<h1>Glossary</h1>
+<table>
+<tr>
+  <th>Term</th>
+  <th>Definition</th>
+</tr>
+<tr>
+  <td>OSA</td>
+  <td>Obstructive Sleep Apnea</td>
+</tr>
+<tr>
+  <td>POSA</td>
+  <td>Positional Obstructive Sleep Apnea</td>
+</tr>
+<tr>
+  <td>PT</td>
+  <td>Positional Therapy</td>
+</tr>
+<tr>
+  <td>CPAP</td>
+  <td>Continuous Positive Airway Pressure</td>
+</tr>
+<tr>
+  <td>AHI</td>
+  <td>Apnea-Hypopnea Index</td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+</tr>
+</table>
+<h1></h1>
+<h1>1. Introdu ctio n</h1>
+<p>Sleep quality is a core determinant of overall health and wellbeing. Patients living with Obstructive Sleep Apnea (OSA) can suffer from impacted sleep, pre-disposing them to a myriad of long-term health complications. While positional therapy (PT) offers a non-surgical alternative for managing postural-dependent OSA, choosing a device that balances efficacy and regular compliance remains a challenge for clinicians. This project aims to evaluate real-world PT devices, identify key limitations in a patient’s user journey, and propose a solution that simplifies the user interface to improve adherence rates.</p>
+<h2>2. Project Background</h2>
+<h2>2 .1 Background on Positional Obstructive Sleep Apnea and the Role of Sleep Posture in Symptom Severity</h2>
+<p>OSA is a sleep-disordered breathing condition defined by recurrent partial or complete obstruction of the upper airway during sleep [1 ], leaving millions of individuals vulnerable to serious health complications including hypertension, cardiovascular disease, stroke, and increased mortality [2] . OSA is a significant and rapidly growing global health crisis, with an estimated 936 million adults worldwide currently affected by the condition [3] . Among the OSA population, a vital subgroup is patients with positional obstructive sleep apnea (POSA), occurring in approximately 53-75% of individuals diagnosed with OSA [4] . Furthermore, for those with POSA, their apnea-hypopnea index (AHI) is at least twice as high in the supine sleeping position compared to non-supine positions [5] . Current physiological studies suggest that supine sleep increases susceptibility to upper airway obstruction, most notably at the soft palate and epiglottis, and is associated with a reproducible increase in airway collapsibility relative to the lateral sleeping position [6] . This body of evidence establishes that addressing sleep posture represents a meaningful therapeutic target for a substantial portion of OSA sufferers.</p>
+<h2>2 .2 Rationale for PT as a Non-Invasive Intervention</h2>
+<p>Continuous positive airway pressure (CPAP) remains the gold-standard treatment for moderate-to-severe OSA. However, using a minimum of 4 hours per night to interpret adherence, studies have documented that 29-83% of patients are non-adherent to the recommended usage thresholds of CPAP therapy [7] . CPAP non-adherence may arise from factors such as nocturnal mask removal, inconsistent sleep schedules, insufficient opportunity for CPAP use, and treatment-related dryness of the mouth [8] . Studies have found that PT significantly reduces both AHI and time spent sleeping supine in patients with POSA [9] . For patients with POSA, particularly those with mild-to-moderate disease severity, PT may serve as a non-invasive treatment approach by targeting the posture-related component of upper airway obstruction.</p>
+<h2>2 .4 Review of Last Semester’s Progress</h2>
+<h2></h2>
+<p>Figure 1: Last Semester’s Concept : Multi-Array Mattress</p>
+<p>In the initial phase of this project, the proposed solution was a mattress array system comprising individually addressable elevatable blocks that could be actuated to physically tilt or reposition the user's body when a supine sleeping position was detected. The concept drew inspiration from active pressure-redistribution mattress systems used in clinical wound-care settings, where alternating inflation cycles prevent prolonged tissue loading [10 , 11 ]. However, through user-centred evaluation and clinician interviews conducted during the second semester, several critical limitations with this approach became apparent.</p>
+<p>First, pneumatic actuation systems introduce significant mechanical noise from air pumps and solenoid valves, which poses a direct risk of sleep disturbance to both the user and any bed partner. This is a concern that is well-supported by evidence that environmental noise during sleep increases arousal frequency and degrades sleep quality [12] .</p>
+<p>Second, the complexity of an array-based pneumatic system entails substantial power consumption, maintenance requirements, and manufacturing cost. After interviewing Dr Phua Chu Qin, the director of sleep surgery at Sengkang General Hospital, it was concluded that the initial solution requirements would limit the accessibility and scalability of the product for home-based use.</p>
+<p>Lastly, the forced physical repositioning mechanism, which actively shifts the user's body, raises concerns about abrupt postural changes that could trigger cortical arousals, paradoxically worsening sleep fragmentation rather than alleviating it [13 ] .</p>
+<p>These combined insights prompted a fundamental re-evaluation of the project scope, moving away from an active mattress-based actuation paradigm toward a gentler, more adaptive intervention strategy that prioritises user comfort and gradual positional encouragement without the mechanical complexity, noise, and intrusiveness of a pneumatic array system.</p>
+<h1>3. Existing Solutions &amp; Limitations</h1>
+<h2>3.1 Overview of Existing POSA Devices</h2>
+<p>The current landscape of commercially available POSA devices can be broadly categorised into three functional approaches: proactive devices, reactive signal-based correction devices and reactive actuation devices [14] .</p>
+<p>Figure 2: Zzoma, Proactive PT Device</p>
+<p>Proactive devices are restrictive mechanisms, such as the tennis ball technique (TBT) or torso-worn positioners like Zzoma, that use a physical obstruction to prevent or discourage supine sleep [15] . Although these devices can substantially reduce supine sleeping time, traditional methods such as the TBT show poorer long-term adherence, commonly due to discomfort [16] .</p>
+<p>Figure 3: Philips NightBalance, Reactive Signal-Based PT Device</p>
+<p>Reactive signal devices use accelerometers to sense positional changes [17] , and vibrational feedback to correct supine positioning in real time [15] . Examples include the Philips NightBalance [18] /Sleep Position Trainer and the Night Shift neck-worn device [19] .</p>
+<p>Figure 4: ISABel, Reactive Actuation Device</p>
+<p>Reactive actuation devices provide a more direct intervention by physically repositioning the user [20] . Devices like the ISABel contour the bed surface and gently guide the user into a lateral sleeping posture [21] .</p>
+<p>These categories represent different strategies to reduce supine sleep time, each with tradeoffs in comfort, usability and adherence. As user preference influences adherence, their effectiveness may vary among OSA patients. They also differ in mechanical complexity, affecting the cost and availability in Singapore.</p>
+<h2>3.1.1 Clinically Recognised Devices in Singapore</h2>
+<p>During the interview with Dr Chu, a indicated that the recommended PT devices in Singapore primarily include wearable vibrotactile systems and simple restrictive interventions. Devices such as the Philips NightBalance are commonly administered in clinical practice due to their evidence-based reductions in AHI. The TBT is currently not administered due to past clinical evidence of sleep fragmentation and low adherence. Nevertheless, low-technology derivatives such as the Zzoma positional belt remain relevant due to their accessibility and ease of use. Pregnancy or lateral support pillows are often recommended to patients, particularly for mild cases, due to their less invasive and familiar form.</p>
+<h2>3.1.2 Other Available PT Products</h2>
+<p>Aside from these locally clinically recommended products, a broader market of PT devices exist that follow similar therapeutic principles but are not as widely adopted in clinical practice, such as the BuzzPOD or Somnibel. These devices use vibratory feedback when supine position is detected [22] , conditioning users into adopting side sleeping postures. Another category of PT would be the ones focused on actively repositioning a user, such as the Intelligent sleep Apnea Bed ( ISABel) [21] . Unlike wearable or proactive devices, the ISABel uses mechanical actuation to reposition users without needing conscious response. While the device can improve comfort and reduce the need for wearables, its high cost and mechanical complexity reduces access to patients.</p>
+<h2>3.2 Strengths and Weaknesses</h2>
+<p>The primary therapeutic objective of any POSA device is the reduction of time spent in the supine sleeping position, and systematic reviews indicate that PT generally produces meaningful short-term reductions in supine sleep and AHI under controlled conditions. However, a high per-night efficiency may not correspond to meaningful long-term benefit, as positive clinical outcomes depend heavily on sustained usage. This limitation is illustrated by the TBT, which reduced mean supine sleep time from 79.0% to 12.3% and overall AHI from 46.5 ± 19.9 to 17.5 ± 19.4 in short-term follow-up, yet long-term adherence was poor: only 38% of patients were still using it at 6 months and fewer than 10% continued treatment at approximately 30 months [16] . Even when PT is effective in the short term, poor long-term adherence can substantially limit its real-world clinical benefit [23] .</p>
+<p>A critical limitation of PT is the potential for treatment-related sleep disturbance. This concern is especially relevant for older anti-supine approaches, which have been associated with discomfort and low adherence. However, this remains a consideration for vibrotactile systems because the corrective stimulus itself may still provoke arousal or awakening in some users [24] . However, since commonly used vibrotactile PT devices are position-triggered rather than PSG-guided, corrective stimuli may not be timed to the sleep stage and can disrupt sleep [25] .</p>
+<p>Additionally, t he extent to which a sleep device fits naturally into the user’s existing sleep environment and routine can influence user preference [26] . Devi ces requiring complex setup procedures or tedious routine modifications introduce habitual friction, particularly among elderly patients [27] . Hence, innovations like the ISABel bed that are costly or NightBalance that require constant charging and nightly wearing may impose a cognitive burden that, while individually small, compounds over time into a significant tax on the user’s nightly routine. Clinical guidelines suggest that the ideal PT device should be simple to use, reversible, and easy to incorporate into the patient’s usual sleep routine without adding substantial burden [9] . This principle of minimal disruption should also extend to the bed partner, as treatment-related noise, intrusiveness, and disruption of bedtime routines can affect acceptability within a shared sleep environment [28] .</p>
+<p>Collectively, the strengths and weaknesses present in current POSA solutions highlight how overall effectiveness is constrained not only by their ability to reduce supine sleep or improve the AHI index, although paramount, but by the user’s preference and long-term adoption.</p>
+<h2>3.3 Overview of Sustained Adherence</h2>
+<p>While clinical evidence alone is sufficient to determine the efficacy of PT devices, sustained adherence is a critical factor in the real-world success of a product. Analysis of clinical trial data and user-experience surveys reveal several design features that appear to be associated with overall positive therapy outcome.</p>
+<ol>
+  <li>Devices that employ graduated vibrotactile correction may help reduce discomfort and sleep disruption [29 ] . The Night Shift device, for example, uses an escalation algorithm that uses low-intensity vibrations and progressively increases until a positional change is detected. Clinicians have identified this feature as a major contributor to user favourability</li>
+  <li>Devices that enable sleep-position monitoring and data logging allow patients and clinicians to track progress and identify patterns in supine positioning. This allows them to make objective adjustments to therapy parameters, fostering a sense of therapeutic partnership that supports adherence [30] .</li>
+  <li>Devices with a low physical profile (e.g. lightweight, unobtrusive, minimal alteration to sleep surface) tend to receive higher subjective comfort ratings.</li>
+  <li>Devices that allow personalisation of correction thresholds and timing enable targeted treatment. As sleep patterns can vary from person to person, adjustable event-to-initiation delay periods or varied vibration intensity settings can be tailored to individual sensitivity. This has a positive association with improved tolerance in preliminary studies [30] .</li>
+</ol>
+<h2>3.4 Remaining Gaps in Adherence</h2>
+<p>Despite the availability of technologically advanced PT devices, clinically recommended solutions remain relatively low-technology. In Singapore, the Zzoma or pregnancy pillows continue to be widely used for their simplicity and minimal maintenance requirements. As a result, they integrate more seamlessly with existing routines and impose a less significant behavioural burden. Hence, their relatively higher real-world adherence rates cement them as clinically practical and effective. However, this simplicity comes at the expense of functionality. With limited ability to track measurable insights or personalise feedback, they provide lower quality therapy outcomes, often associated with a higher AHI [31] . This trade-off between function and tolerance exists in all PT solutions; devices that maximise efficiency and intelligent features may lack comfort or adaptability. On the contrary, simpler solutions are more intuitive but limit the extent of quantitative therapeutic analysis, making it harder to alter treatment regimens.</p>
+<p>This does not imply that technological advancement is unnecessary and impractical. Rather, it suggests a disconnect between the conceptual model of a device and the user experience as a key factor in adherence. High-technology solutions may implicit expectations on the user, such as wearing, charging, manual configuration and even response to a stimulus. By placing the therapeutic responsibility on the user, it increases the maintenance required and undermines the user experience. An ideal PT device would retain the intelligence of a complex system while presenting the user interface simply to not complicate their mental model of the device. Thus, understanding how patients interact with these devices outside of controlled environments provides deeper insights into where current solutions fall short.</p>
+<h1>4. Problem Definition</h1>
+<h2>4.1 Overview of the Previous Project</h2>
+<h2></h2>
+<p>Figure X: Trapezium Wedge Supports designed by Chong</p>
+<p>T he previous group, led by Chong Tse-Ning, focused on the development of a trapezium wedged-support system combined with a bed rail as a POSA solution. The design aimed to prevent supine sleeping through physically restricting the user’s ability to roll onto their backs. The system was developed with considerations on structural stability, ergonomics and sleep environment compatibility. Her project identified the optimal angle of the wedge for support and user comfort (70º-75º), ideal heat dissipative material considerations to reduce thermal discomfort during prolonged use, and a front support to prevent forward displacement.</p>
+<p>The supine correction approach relied on 2 main components. Firstly, the wedge structure was positioned to be in contact with the user’s back, at an incline that encourages a lateral sleeping posture. Secondly, the bed rail was used as a physical barrier to prevent the wedge from being displaced on the bed. The modularity of the bed rail allowed it to be fitted to any existing bed frame.</p>
+<h2>4 .2 Site Visit to Sengkang General Hospital</h2>
+<p>Figure X: Group photo with Dr Chu, teaching assistants and other group</p>
+<p>On 14 January, our group visited Dr Chu at Sengkang General Hospital (SGH) where we gathered insights regarding clinical understanding of treatment and management of OSA. These are our key findings:</p>
+<ol>
+  <li>OSA is a multifactorial condition, comprising both anatomical and lifestyle factors. Effective interventions cannot rely on a one-size-fits-all approach and must be designed with adaptability to accommodate different patient dimensions and sleeping habits. Patients may be predisposed due to genetic or anatomical factors such as smaller airways, recessed chins, enlarged tonsils, or weight gain as it can increase airway during supine sleep, requiring OSA devices that suit their needs. When considering a design for a full mattress, it must tolerate key metrics such as their weight and shoulder dimensions to manage bed sink and comfort. Additionally, natural preferences for supine and right or left-facing side sleeping posture also impacts patient adherence. As such, designing a solution that compliments the user’s preferences can improve adaptability and adherence.</li>
+</ol>
+<ol>
+  <li>While physical comfort is an important consideration in PT solutions, psychological comfort such as perceived intrusiveness is equally crucial in long-term patient adherence. Dr Chu emphasised that devices often create a constant sensory presence throughout their sleep, instead of intervening only during OSA episodes. The common sentiments of clinically recommended devices (like the pregnancy pillow or Zzoma Positional Device) physically limit movement, with patients commenting that it affects natural sleep preferences. Other devices like the Nightbalance Sleep Trainer, a wearable device that induces vibrational feedback during supine postural changes, feel intrusive and trigger immediately upon transitioning to a supine position instead of an apnea event, resulting in unnecessary disturbances and may be seen as overly corrective. Therefore, incorporating a degree of slack allowance, where brief supine periods are tolerated, aligns better with natural sleep behaviour and can be seen as a user-centric solution for users.</li>
+</ol>
+<ol>
+  <li>Users may also be reluctant to adopt PT solutions that significantly alter their sleeping environment. Such as but not limited to: appearance seeming too “medical”, surface shape, texture, thermal properties, direction of side-sleeping posture or the introduction of wearables, can affect a user’s pre-established sleeping preferences. While existing products introduce modifications that show therapeutic efficacy, substantial deviation from familiar sleeping conditions or those that require behavioural changes can deter long-term patient adherence.</li>
+</ol>
+<ol>
+  <li>Assessing sleep quality in a home environment remains a challenge for clinicians, as clinical evaluation relies on PSG. This test shows comprehensive data on the patient’s brain activity, oxygen saturation and respiratory patterns, metrics that are often not available on POSA devices. Additionally, side-sleeping adherence rates are not regularly measured by patients at home as devices, such as the pregnancy pillow or Zzoma, do not have the required components to measure them. Dr Chu emphasised that devices which provide meaningful and interpretable metrics can improve adherence outcomes and clinical evaluations. For patients, clear feedback and efficacy reports improves their awareness and reinforces their perception of effectiveness of therapy, supporting continued adherence. For clinicians, objective data such as number of OSA events or continuous sleep pattern data allow them to better evaluate outcomes and introduce adjustments to patient treatments.</li>
+</ol>
+<h2>4.3 Key Learnings from the Previous Project and Site Visit</h2>
+<p>Chong’s project evaluated the efficacy of supine restrictive devices when augmented with user-centered design considerations such as thermal and angular comfort. This approach focused on passive positional correction rather than active repositioning, as well as maintaining environmental familiarity to preserve user comfort. From the previous group’s work and site visit insights, these are the key limitations and takeaways that are relevant to the current project:</p>
+<ol>
+  <li>Slack Allowance: The previous project devised a wedge system that physically prevents the user from returning to supine position. While this approach enforces permanent lateral positional by restricting positional changes, it mitigates any opportunity for the user to return briefly to supine position during sleep. While this can effectively reduce OSA events, it can affect natural sleeping behaviour that inclines humans to change positions throughout the night. As highlighted by Dr Chu, continuous non-episodic intervention may negatively affect patient adherence, as devices that enforce restrictive or corrective actions during supine periods when no apnea events are present can trigger cortisol arousal, disrupting sleep quality.</li>
+</ol>
+<ol>
+  <li>Support Structure: Chong’s project incorporated both front and back supports through a wedge and bolster respectively. This prevents forward and backward displacement of the user and ensures the wedge position is in the intended position to maintain side sleeping posture. During sleep, patients can naturally displace themselves or unconsciously remove OSA devices. To accommodate this possibility, devices such as the Zzoma are often strapped onto the user, preventing significant adjustments, or do not require wearables, such as Chong’s solution that functions as a bed extension. These solutions can mitigate against patient adjustments and improve therapeutic efficacy.</li>
+</ol>
+<ol>
+  <li>Environmental Familiarity: Both Chong’s project and Dr Chu indicated the importance of preserving as much of the user’s existing sleep environment. In Chong’s project, the majority of the bed components were maintained, with only the wedge being the unfamiliar layer to the user. During the clinical visit, it was mentioned that devices that significantly alter surface characteristics or wearables may reduce user acceptance. Hence, PT solutions should aim to minimise disruption and alter the existing infrastructure of the patient’s sleeping environment to improve patient acceptability.</li>
+</ol>
+<h2>4.4 Revised Problem Definition of the Current Project</h2>
+<p>While the clinical rationale for PT is well-established, the long-term success of actuated positional intervention is limited by patient adherence, an area many existing devices fall short of.</p>
+<p>Insights from the previous project and interview with Dr Chu reinforces that reactive approaches may achieve effective positional correction at the cost of comfort and human naturality. Conversely, less intrusive solutions may improve comfort but have insufficient therapeutic effectiveness. When weighing existing solutions, there is often a tradeoff between operational complexity and compliance; thus, minimising the therapeutic responsibility of reactive PT devices can improve user acceptance.</p>
+<h1>5 . Value Proposition</h1>
+<p>Our proposed solution aims to reduce maintenance barriers and preserve user habits when using PT devices. By improving adherence outcomes, it enables long term efficacy rates, improving overall sleep quality and wellbeing.</p>
+<h2>5 .1 Target User Persona</h2>
+<p>The primary target users for the proposed PT system are adults diagnosed with mild-to-moderate POSA in Singapore. These individuals are typically familiar with conventionally PT products and have formed a personal bias to or against them. This makes them ideal candidates to test the functionality and usage adherence.</p>
+<p>As a baseline for future iterations, we organised common sentiments of the target user (Figure x) to reference key characteristics like their goals, motivations and habits.</p>
+<p>Fig. x: User Persona</p>
+<h2>5.2 Value Proposition</h2>
+<p>The proposed solution should focus on addressing the key gaps that existing solutions are unable to, such as having appropriate correction windows and minimising changes to sleeping routines such as charging devices or wearables. A value proposition canvas is used to align the pains and gains, customer needs that our solution needs to address. (Fig. x)</p>
+<p>Fig. x: Value Proposition Canvas</p>
+<h1>6 . Design Criteria</h1>
+<h2>6 .1 User-Centered Requirements</h2>
+<p>The following requirements will be used to ensure that our PT system is not only clinically effective but also acceptable for long-term use. This section defines key comfort and environmental thresholds that should be maintained during the design and testing process.</p>
+<p>Preferred level of comfort during sleep. The system must preserve subjective comfort comparable to the user’s unmodified mattress, such as surface compression at load bearing contact points for pressure distribution [X] . The human-mattress interface temperature should remain within the comfortable range of approximately 32.3–33.8°C established in controlled sleep experiments [X] , given Singapore’s tropical climate where heat retention is a salient concern.</p>
+<p>Acceptable degree of movement during actuation. The actuation mechanism must produce a gentle, gradual positional change. As emphasised by Dr Chu, the system should incorporate a slack allowance, responding only after sustained supine-induced sleep apnea is detected and producing a controlled tilt within the angular range of 70°–75° from horizontal, consistent with the optimal wedge angle identified in the previous project [X] .</p>
+<p>Tolerance for heat, noise, and bulk: D evice noise [X] , and excessive bulk [X] should be minimized to improve comfort and usability. The system must operate below the World Health Organization’s recommended bedroom noise threshold of 30 dB(A) [X] and must not introduce perceptible bulk that alters the familiar feel of the user’s bed. Surface materials should be breathable and facilitate heat dissipation.</p>
+<h2>6 .2 Design Specification Chart</h2>
+<p>Our team’s goal is to create a low setup PT device that assists in actively repositioning patients with OSA during apnea-hypopnea events, providing the user with understandable metrics that can enlighten them on therapeutic effectiveness.</p>
+<table>
+<tr>
+  <th>Customer Insight</th>
+  <th>Need Statement(s)</th>
+  <th>Specification</th>
+</tr>
+<tr>
+  <td>Requirement / Metric</td>
+  <td>Metric Value (Measuring Unit)</td>
+</tr>
+<tr>
+  <td>“Some of the devices I’ve tried either cannot support my weight, or fit uncomfortably.”</td>
+  <td>System supports users weight and dimension.</td>
+  <td>System can lift the weight of the upper torso of a person.</td>
+  <td>Upper Weight Tolerance Limit of 78kg for a person of 120kg.50% of maximum weight x 1.3 (0.3 Safety Factor)</td>
+</tr>
+<tr>
+  <td>“I’ve tried back supports before and they do not always keep me on my side.”</td>
+  <td>System reliably promotes lateral sleeping posture when operating.</td>
+  <td>System allows a range of lateral posture promotion.</td>
+  <td>Between 70º-90º based on Chong’s metric for comfortable positional adherence and user-testing to sufficiently alter sleeping position.</td>
+</tr>
+<tr>
+  <td>“I need a simple and intuitive device that I can use on my own.”</td>
+  <td>The system’s user interface is straightforward for the target user.</td>
+  <td>System meets user satisfaction requirements.</td>
+  <td>On a  5 point Litker scale, where 1 denotes dissatisfaction and 5 denotes satisfaction.Average rating should be above 3.</td>
+</tr>
+<tr>
+  <td>“I wake up quite easily, so I do not want it to be too noisy.”</td>
+  <td>System’s operational noise provides minimal to no disruption to the user.</td>
+  <td>System noise level is below the tolerable decibel level.</td>
+  <td>As per WHO guidelines[X][n], perceivable noise levels should be below 30dB.</td>
+</tr>
+<tr>
+  <td>“Sometimes I do not turn on the air-conditioner. If it is too hot, it makes it harder to sleep.”</td>
+  <td>System provides a thermally comfortable human-mattress interface temperature.</td>
+  <td>System surface temperature is maintained during operation.</td>
+  <td>Surface temperature is within 32.3ºC and 33.8ºC[X][o]</td>
+</tr>
+<tr>
+  <td>“Vibrating PT devices tend to operate when supine detection is detected. If you can include some slack allowance to only when there is apnea events, that would be more comfortable for the patient.”</td>
+  <td>System identifies apnea indicators and operates when they are present.</td>
+  <td>System detects noise levels due to snoring.</td>
+  <td>Noise level threshold for system intervention is at 50 dB.</td>
+</tr>
+<tr>
+  <td>System provides timely intervention once apnea indicators are detected.</td>
+  <td>Postural correction should be administered within 1 minute as per Dr Chu, to reduce sleep arousal</td>
+</tr>
+<tr>
+  <td>“The bed size varies among our patients.”</td>
+  <td>System is compatible with existing bed frames.</td>
+  <td>Size of the system should be able to accommodate a single bed dimension.</td>
+  <td>The width is a maximum of 91cm.The length is a maximum of 190cm.</td>
+</tr>
+<tr>
+  <td>As the system may be directly in contact with the user’s skin, it should not cause skin irritation or discomfort.</td>
+  <td>System is safe for prolonged skin to skin contact.</td>
+  <td>System is made from biocompatible[X][p]material that is washable[X][q].</td>
+  <td>User-centred design</td>
+</tr>
+<tr>
+  <td>“While adherence is important, the device still needs to be clinically effective for us to consider it for OSA therapy.”</td>
+  <td>System reduces time spent in supine position.</td>
+  <td>≥ 50% from baseline</td>
+  <td>[X][r]</td>
+</tr>
+<tr>
+  <td>“Some wearable devices require set up. If I am feeling tired, putting it on feels like extra work.”</td>
+  <td>System is easy to setup before and after usage.</td>
+  <td>Time taken for the system to be setup and ready for operation</td>
+  <td>Less than 5 minutes as per Dr Chu’s recommendations CPAP setup time.</td>
+</tr>
+</table>
+<h1>6.5 Concept Generation</h1>
+<p>Figure x is a morphological chart to generate multiple concepts for evaluation.</p>
+<p>Figure X: Morphological Chart</p>
+<p>6.6 Concept Generation Analysis</p>
+<p>Concept 1:</p>
+<p>Figure x: Air Cell Bed Topper</p>
+<p>This system uses pneumatic pumps and inflatable cuboid cells on a flat mattress topper. The air cells are connected with small, stretch-resistant tubings, an air pump and solenoid valves to inflate various air cells on the topper, depending on the user’s sleeping position. Using 4 air cells allows the user to assume a left or right facing lateral sleeping position, and is optimally operational at 3 locations on the topper.</p>
+<p>Limitations: While the system can achieve a sufficient 90º angular displacement to return a user to side-sleeping, the system’s actuation speed can be limited by user profiles such as higher weight or broader shoulders. As air is compressible, higher pressure due to the user may require a longer duration to complete positional correction.</p>
+<p>Concept 2:</p>
+<p>Figure x: Cooling Gel Cell Bed Topper</p>
+<p>This system uses hydraulic pumps and inflatable fan-shaped cells on a flat mattress topper. The liquid used can be substituted for water or cooling gels based on user preference, which reduces heat retention similar to a water bed. The lower compressibility of water improves the structural integrity of the inflated cell. Hence, a fan-shaped system can be adopted, which enables gradual angular displacement of the user towards the lateral position.</p>
+<p>Limitations: When building a small prototype, the higher seams required to design this structure resulted in an increased probability for leakage at the base, where the user's body pressure is concentrated during initial operation. Additionally, potential leakages can be harder to clean up and are more likely to cause sleep arousal to both the user and their bed partner (if any). The subsequent cleaning required can have a greater influence on non-adherence if it is a persistent concern.</p>
+<p>Concept 3:</p>
+<p>Figure X: Oximetry-based ML Cables</p>
+<p>This solution is a fundamentally ideal solution to positional correction, having a rounded actuator shaped to a user’s body curvature. This solution uses internal cables and a reeling drum to provide tension that can lift the user’s body. To improve heat retention, a reinforced, static-pressured cooling gel mat is attached to the surface, minimising leakage. Including a singular SpO2 wearable on the wrist, one that minimises behavioural changes to sleep routines, the device detect apnea-induced oximetry decreases and operate. Using machine learning, extent of curvature of each arm can be personalised based on user profiles and validated with improved oximetry readings.</p>
+<p>Limitations: A significant concern to building this system would be the cost required to adopt this device and the direction of side sleeping it allows. The integration of machine learning-based devices, though relevant to apnea patients and their varying profiles and natures, introduces substantial manufacturing and calibration complexity. This can increase upfront cost and decrease the marketability of the device. Furthermore, while it enables controlled curvatures, it limits the user to a predefined direction of lateral sleeping, introducing rigidity to user preference.</p>
+<h2>6.6 Chosen Solution</h2>
+<p>Figure X shows a scoring matrix used to assess the manufacturing and user perceived complexity of the concept solutions.</p>
+<p>Figure x: Scoring Matrix and Concept Designs</p>
+<p>Our chosen concept is the Air Cell Bed Topper, NightDrift. The chosen concept consists of two key components, the software and hardware.</p>
+<p>The hardware of NightDrift comprises a thin mattress mounted with 4 cuboid air cells made from thermoplastic polyurethane (TPU). The seams of the air cells are heat sealed, reducing risks of air leak and simplifying reparation. Each air cell can be inflated depending on the user’s sleeping position, allowing bi-lateral sleeping positions throughout the night. The use of a thin bed topper improves familiarity with the user’s original sleeping environment. At rest, the device is completely flat, mimicking the natural bed texture and improving the bed sharing experience.</p>
+<p>The software component primarily comprises an Arduino board, air pumps, a microphone and solenoid valves. The system runs on a simple code that detects supine sleep based on snoring as an indicator of apnea-impacted breathing. When snoring is detected, the air pump and corresponding solenoid valve opens, delivering air into the cell chamber and inflating the device. During a consultation with Dr Chu, she mentioned that while SpO2 is a good indicator of apnea events, her patients are less inclined to adopt wearable devices. Within the confines of this module, we have kept the apnea detection module simple to focus on the actuation mechanism.</p>
+<h1>8. Testing Methodology</h1>
+<p>To assess the efficacy and desirability to adhere to the device, qualitative and quantitative data was collected. While key specifications such as sound and time can be measured with existing technology, user preference and comfort is subjective. Hence, measuring both forms of data allowed us to assess the system performance and user experience for a more holistic evaluation of adherence potential.</p>
+<h2>8.1 Quantitative Data</h2>
+<h2>8.1.1 Sound Sensor</h2>
+<p>To measure the volume of noise generated by the air pumps during operation, a microphone connected to a laptop was set up to measure the heard volume relative to a user’s head position. Fig. X and X shows the setup and table of data acquired by the air pumps with various methods of noise-cancellation.</p>
+<p>Figure X: Test Setup for Noise Detection</p>
+<p>Figure X: Data Recorded by Test Microphone</p>
+<h2>8.1.2 Heat Dissipation Testing</h2>
+<p>To measure the thermal properties of the</p>
+<p>To evaluate the thermal performance of different fillings, a thermal testing setup</p>
+<p>was developed to simulate a human lying on the bolster (Fig. 35). This setup enabled</p>
+<p>the assessment of how effectively each material dissipated heat and possibly</p>
+<p>maintained a comfortable temperature during side-sleeping.</p>
+<p>The bolster was placed on a flat surface (table) in an air-conditioned room. A</p>
+<p>heat pad was placed on one side of the bolster, with a temperature probe positioned</p>
+<p>on top of the heat pad. To minimise heat loss from the top of the setup, the probe</p>
+<p>and heat pad were covered with a layer of black foam and aluminum foil for</p>
+<p>insulation. This setup mimicked the scenario where the bolster would be exposed to</p>
+<p>heat from the human body.</p>
+<p>The temperature of the heat pad was kept constant at 37°C, which</p>
+<p>approximates human body temperature. This ensured that the system was operating</p>
+<p>under realistic conditions, simulating the heat transfer from the human body to the</p>
+<p>bolster. The goal was to measure how well the bolster material dissipated heat, with</p>
+<p>the hypothesis that better heat dissipation would result in lower energy consumption.</p>
+<h2>8.1.3 Lateral Position Adherence</h2>
+<p>8.2.1 Comfort Scale</p>
+<p>• How the methodology builds on prior group work while using your own data</p>
+<p>• Testing phases and their purpose</p>
+<h2>8.2 Data Collected</h2>
+<p>• Quantitative data</p>
+<p>• Time spent in side versus supine positions</p>
+<p>• Pitch or orientation data from MetaMotionRL</p>
+<p>• Actuation timing and response</p>
+<p>• Qualitative data</p>
+<p>• Comfort ratings</p>
+<p>• Sleep disturbance feedback</p>
+<p>• Perceived effectiveness using Likert-scale responses</p>
+<h2>8.3 Data Analysis Method</h2>
+<p>• How posture is identified from sensor data</p>
+<p>• How adherence is defined and measured</p>
+<p>• How side-sleep duration is used as a positive indicator</p>
+<p>• How qualitative feedback is interpreted against design criteria</p>
+<h1>9. Prototype Development and Testing</h1>
+<h2>9.1 Phase 1: Shape Exploration and Early Validation</h2>
+<p>• Testing of air-cell shapes</p>
+<p>• Maximum angle and repositioning efficacy</p>
+<p>• Lab testing setup and observations</p>
+<p>• Mini air-bed prototypes and mannequin movement</p>
+<p>• Selection of the final air-cell shape and design concept</p>
+<h2>9.2 Phase 2: Functional Prototype Development</h2>
+<p>• Construction process of the bed prototype</p>
+<p>• Construction of the electronics and circuitry</p>
+<p>• Integration of sensing and actuation</p>
+<p>• Note that full code can be placed in the Annex</p>
+<h2>9.3 Phase 2 Testing Results</h2>
+<p>• Percentage of side-sleep versus supine-sleep time</p>
+<p>• Initial actuation performance</p>
+<p>• Qualitative peer feedback on comfort of the bed and comfort during actuation</p>
+<p>• Key shortcomings and improvements identified</p>
+<h2>9.4 Phase 3: Refinement and Final Validation</h2>
+<p>• Additional design changes made after Phase 2</p>
+<p>• Heat testing during and after actuation</p>
+<p>• Noise testing and comparison against design specifications</p>
+<p>• Final testing outcomes and whether the design met the intended criteria</p>
+<h1>10. Limitations and Future Iterations</h1>
+<p>• Current prototype limitations</p>
+<p>• Constraints in testing population, duration, or realism</p>
+<p>• Opportunities to improve comfort, responsiveness, and portability</p>
+<p>• Future work in clinical validation and long-term adherence assessment</p>
+<h1>11. Conclusion</h1>
+<p>• Summary of the problem addressed</p>
+<p>• Summary of the final design and main findings</p>
+<p>• Reflection on how the project contributes to more comfortable PT</p>
+<div class="references">
+<h1>12. References</h1>
+<p>[1] Senaratna, C. V., Perret, J. L., Lodge, C. J., Lowe, A. J., Campbell, B. E., Matheson, M. C., Hamilton, G. S., &amp; Dharmage, S. C. (2017). Prevalence of obstructive sleep apnea in the general population: A systematic review . Sleep Medicine Reviews, 34 , 70–81. https://doi.org/10.1016/j.smrv.2016.07.002</p>
+<p>[2] Gilat, H., Vinker, S., Buda, I., Soudry, E., Shani, M., &amp; Bachar, G. (2014). Obstructive sleep apnea and cardiovascular comorbidities: A large epidemiologic study . Medicine, 93 (9), e45. https://doi.org/10.1097/MD.0000000000000045</p>
+<p>[3] Zappalà, P., Lentini, M., Ronsivalle, S., Lavalle, S., La Via, L., &amp; Maniaci, A. (2025). The global socioeconomic burden of obstructive sleep apnea: A comprehensive review . Healthcare, 13 (17), 2115. DOI: 10.3390/healthcare13172115.</p>
+<p>[4] Vanegas-Cadavid, D. I., &amp; Blanco-Ruíz, A. F. (2025). Prevalence and characterization of positional obstructive sleep apnea with peripheral arterial tonometry in a real-world Colombian cohort. Sleep and Breathing, 29 (4), 257. https://doi.org/10.1007/s11325-025-03429-6</p>
+<p>[5] Cartwright, R. D. (1984). Effect of sleep position on sleep apnea severity. Sleep, 7 (2), 110–114. https://doi.org/10.1093/sleep/7.2.110</p>
+<p>[6] Landry, S. A., Beatty, C., Thomson, L. D. J., Wong, A.-M., Edwards, B. A., Hamilton, G. S., &amp; Joosten, S. A. (2023). A review of supine position related obstructive sleep apnea: Classification, epidemiology, pathogenesis and treatment . Sleep Medicine Reviews, 72 , Article 101847. https://doi.org/10.1016/j.smrv.2023.101847</p>
+<p>[7] Lee, C. H. K., Leow, L. C., Song, P. R., Li, H., &amp; Ong, T. H. (2017). Acceptance and adherence to continuous positive airway pressure therapy in patients with obstructive sleep apnea (OSA) in a Southeast Asian privately funded healthcare system. Sleep Science, 10 (2), 57–63. https://doi.org/10.5935/1984-0063.20170010</p>
+<p>[8] Pugongchai, A., Leelasittikul, K., Boonyasai, E., Suksupakit, S., Sattaratpaijit, N., &amp; Saiphoklang, N. (2025). Factors affecting adherence to continuous positive airway pressure in Thai patients with obstructive sleep apnea. Sleep Medicine Research, 16 (1), 67–74. https://doi.org/10.17241/smr.2024.02551</p>
+<p>[9] Ravesloot, M. J. L., White, D., Heinzer, R., Oksenberg, A., &amp; Pépin, J.-L. (2017). Efficacy of the new generation of devices for positional therapy for patients with positional obstructive sleep apnea: A systematic review of the literature and meta-analysis . Journal of Clinical Sleep Medicine, 13 (6), 813–824. https://doi.org/10.5664/jcsm.6622</p>
+<p>[10] McInnes, E., Jammali-Blasi, A., Bell-Syer, S. E. M., Dumville, J. C., Middleton, V., &amp; Cullum, N. (2015). Support surfaces for pressure ulcer prevention . Cochrane Database of Systematic Reviews , 2015(9), CD001735. https://doi.org/10.1002/14651858.CD001735.pub5</p>
+<p>[11] Shi, C., Dumville, J. C., Cullum, N., Rhodes, S., &amp; McInnes, E. (2020). Alternating pressure (active) air surfaces for preventing pressure ulcers . Cochrane Database of Systematic Reviews, 2020 (5), CD013620. https://doi.org/10.1002/14651858.CD013620</p>
+<p>[12] Halperin, D. (2014). Environmental noise and sleep disturbances: A threat to health? Sleep Science, 7 (4), 209–212. https://doi.org/10.1016/j.slsci.2014.11.003</p>
+<p>[13] Kucukosmanoglu, M., Conklin, S., Bansal, K., Kaya, S., Anwar, Y., Dang, Q., Kargosha, G., Brooks, J., Feltch, C., &amp; Banerjee, N. (2025). Detection of cortical arousals in sleep using multimodal wearable sensors and machine learning . Scientific Reports, 15 , Article 44089. DOI: 10.1038/s41598-025-27739-7.</p>
+<p>[14] Lee, K.-I., &amp; Choi, J. H. (2023). Positional therapy for obstructive sleep apnea: Therapeutic modalities and clinical effects . Sleep Medicine Research, 14 (3), 129–134. https://doi.org/10.17241/smr.2023.01837</p>
+<p>[15] van Maanen, J. P., Richard, W., Van Kesteren, E. R., Ravesloot, M. J. L., Laman, D. M., Hilgevoord, A. A. J., &amp; de Vries, N. (2012). Evaluation of a new simple treatment for positional sleep apnoea patients . Journal of Sleep Research, 21 (3), 322–329. https://doi.org/10.1111/j.1365-2869.2011.00974.x</p>
+<p>[16] Bignold, J. J., Deans-Costi, G., Goldsworthy, M. R., Robertson, C. A., McEvoy, D., Catcheside, P. G., &amp; Mercer, J. D. (2009). Poor long-term patient compliance with the tennis ball technique for treating positional obstructive sleep apnea . Journal of Clinical Sleep Medicine, 5 (5), 428–430. https://doi.org/10.5664/jcsm.27597</p>
+<p>[17] Benoist, L. B. L., Beelen, A. M. E. H., Torensma, B., &amp; de Vries, N. (2018). Subjective effects of the sleep position trainer on snoring outcomes in position-dependent non-apneic snorers . European Archives of Oto-Rhino-Laryngology, 275 , 2169–2176. https://doi.org/10.1007/s00405-018-5036-y</p>
+<p>[18] Berry, R. B., Uhles, M. L., Abaluck, B. K., Winslow, D. H., Schweitzer, P. K., Gaskins, R. A., Jr., Doekel, R. C., Jr., &amp; Emsellem, H. A. (2019). NightBalance sleep position treatment device versus auto-adjusting positive airway pressure for treatment of positional obstructive sleep apnea . Journal of Clinical Sleep Medicine, 15 (7), 947–956. https://doi.org/10.5664/jcsm.7868</p>
+<p>[19] Levendowski, D. J., Seagraves, S., Popovic, D., &amp; Westbrook, P. R. (2014). Assessment of a neck-based treatment and monitoring device for positional obstructive sleep apnea . Journal of Clinical Sleep Medicine, 10 (8), 863–871. https://doi.org/10.5664/jcsm.3956</p>
+<p>[20] Meszaros, M., Breuss, A., Wilhelm, E., Riener, R., Kohler, M., &amp; Schwarz, E. I. (2025). Robotic beds for the treatment of positional obstructive sleep apnea: A randomized cross-over pilot trial . Sleep Medicine, 129 , 94–100. https://doi.org/10.1016/j.sleep.2025.02.025</p>
+<p>[21] Sensory-Motor Systems Lab. (n.d.). ISABel – Intelligent Sleep Apnea Bed: Applying controlled positional therapy in patients with positional obstructive sleep apnea . ETH Zurich. Retrieved April 5, 2026.</p>
+<p>[22] Battaglia, E., Poletti, V., Volpato, E., &amp; Banfi, P. (2025). Positional therapy: A real opportunity in the treatment of obstructive sleep apnea? An update from the literature . Life, 15 (8), 1175. https://doi.org/10.3390/life15081175</p>
+<p>[23] de Vries, G. E., Hoekema, A., Doff, M. H. J., Kerstjens, H. A. M., Meijer, P. M., van der Hoeven, J. H., &amp; Wijkstra, P. J. (2015). Usage of positional therapy in adults with obstructive sleep apnea . Journal of Clinical Sleep Medicine, 11 (2), 131–137. https://doi.org/10.5664/jcsm.4458</p>
+<p>[24] De Corso, E., Mastrapasqua, R. F., Fiorita, A., Settimi, S., Mele, D. A., Picciotti, P. M., Loperfido, A., Marrone, S., Rizzotto, G., Paludetti, G., &amp; Scarano, E. (2020). Efficacy and long-term follow-up of positional therapy by vibrotactile neck-based device in the management of positional OSA . Journal of Clinical Sleep Medicine, 16 (10), 1711–1719. https://doi.org/10.5664/jcsm.8664</p>
+<p>[25] Santos, C., São Pedro, R., Teixeira, H., André, C., &amp; Antunes, L. (2025). Positional therapy for obstructive sleep apnea with NightBalance® - Prospective study . Portuguese Journal of Otorhinolaryngology - Head and Neck Surgery, 63 (2), 117–126. https://doi.org/10.34631/sporl.2182</p>
+<p>[26] Kuosmanen, E., Visuri, A., Risto, R., &amp; Hosio, S. (2022). Comparing consumer grade sleep trackers for research purposes: A field study . Frontiers in Computer Science, 4 , 971793. https://doi.org/10.3389/fcomp.2022.971793</p>
+<p>[27] Fung, C. H., Martin, J. L., Hays, R. D., Patterson, E. S., Aysola, R., Col, N., Mitchell, M. N., Truong, C., Dzierzewski, J. M., Jouldjian, S., Song, Y., Rodriguez, J. C., Josephson, K., &amp; Alessi, C. (2017). Patient-reported usability of positive airway pressure equipment is associated with adherence in older adults . Sleep, 40 (3), zsx007. https://doi.org/10.1093/sleep/zsx007</p>
+<p>[28] Rosa, D., Amigoni, C., Rimoldi, E., Ripa, P., Ligorio, A., Fracchiolla, M., Lombardi, C., Parati, G., &amp; Perger, E. (2022). Obstructive sleep apnea and adherence to continuous positive airway pressure (CPAP) treatment: Let’s talk about partners! Healthcare, 10 (5), 943. https://doi.org/10.3390/healthcare10050943</p>
+<p>​​ [29] Ravesloot, M. J. L., van Maanen, J. P., Dun, L., &amp; de Vries, N. (2013). The undervalued potential of positional therapy in position-dependent snoring and obstructive sleep apnea—a review of the literature . Sleep and Breathing, 17 , 39–49. https://doi.org/10.1007/s11325-012-0683-5</p>
+<p>[30] Kelly, J. M., Strecker, R. E., &amp; Bianchi, M. T. (2012). Recent developments in home sleep-monitoring devices . ISRN Neurology, 2012 , 768794. https://doi.org/10.5402/2012/768794</p>
+<p>[31] Gao, Y., Zhu, S., Li, W., &amp; Lai, Y. (2025). Comparative efficacy of sleep positional therapy, oral appliance therapy, and CPAP in obstructive sleep apnea: A meta-analysis of mean changes in key outcomes . Frontiers in Medicine, 12 , 1517274. https://doi.org/10.3389/fmed.2025.1517274</p>
+<h1>13. Annex</h1>
+<p>• Visit notes from SGH and discussion with Dr Chu</p>
+<p>• Code and circuitry details</p>
+<p>• Additional test data</p>
+<p>• Raw survey responses</p>
+<p>• Extended figures, lab photos, and calculations</p>
+</div>
 
-    <!-- This is a divide from the shoelace library for aesthetic purpose -->
-    <sl-divider></sl-divider>
-
-    <!-- This is the table-of-content component use to define all of the link directly to each section -->
-    <div class="table-of-content">
-      <h2>Table of Contents</h2>
-      <sl-tree>
-        <sl-tree-item expanded>
-          <a href="#section-header-1">1. Section Header 1</a>
-          <sl-tree-item>
-            <a href="#sub-section-1-header-1">1.1. Sub-section Header 1</a>
-          </sl-tree-item>
-          <sl-tree-item>
-            <a href="#sub-section-1-header-2">1.2. Sub-section Header 2</a>
-          </sl-tree-item>
-        </sl-tree-item>
-
-        <sl-tree-item expanded>
-          <a href="#section-header-2">2. Section Header 1</a>
-          <sl-tree-item>
-            <a href="#sub-section-2-header-1">2.1. Sub-section Header 1</a>
-          </sl-tree-item>
-          <sl-tree-item>
-            <a href="#sub-section-2-header-2">2.2. Sub-section Header 2</a>
-          </sl-tree-item>
-        </sl-tree-item>
-
-        <sl-tree-item>
-          <a href="#references">References</a>
-        </sl-tree-item>
-      </sl-tree>
-    </div>
-    <sl-divider></sl-divider>
-
-    <div>
-
-      <!-- This is an example of what a section might look like -->
-      <div id="section-header-1">
-        <h2> 1. Section Header 1 </h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna
-          aliqua. Tincidunt ornare massa eget egestas. At tellus at urna condimentum mattis pellentesque id nibh tortor.
-          Elementum sagittis vitae et leo duis ut diam. Morbi tristique senectus et netus et malesuada fames.
-          Suspendisse
-          ultrices gravida dictum fusce ut placerat orci. Risus nullam eget felis eget nunc lobortis mattis aliquam
-          faucibus
-          (Brody, 2007). Eget sit amet tellus cras adipiscing enim eu turpis egestas. Aliquet nibh praesent tristique
-          magna
-          sit amet purus. Adipiscing bibendum est ultricies integer quis auctor elit sed. Fermentum et sollicitudin ac
-          orci
-          phasellus egestas tellus rutrum. At in tellus integer feugiat scelerisque varius morbi enim nunc. Volutpat
-          blandit
-          aliquam etiam erat velit scelerisque in. Id diam maecenas ultricies mi eget mauris pharetra et. Nec dui nunc
-          mattis
-          enim ut tellus elementum sagittis vitae.
-        </p>
-      </div>
-
-      <div id="sub-section-1-header-1">
-        <h3>1.1 Sub-section Header 1</h3>
-        <p>
-          Ultrices dui sapien eget mi. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit. Dolor purus non enim
-          praesent elementum facilisis. Lacus vestibulum sed arcu non odio euismod lacinia at. Metus aliquam eleifend mi
-          in nulla. Lacus sed viverra tellus in hac habitasse platea. Varius quam quisque id diam vel quam elementum
-          pulvinar. Eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Diam ut venenatis tellus in metus
-          vulputate. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Venenatis lectus magna
-          fringilla
-          urna. In nisl nisi scelerisque eu ultrices. Velit egestas dui id ornare arcu odio ut sem nulla. Quam id leo in
-          vitae. Egestas congue quisque egestas diam in arcu cursus euismod quis. Porttitor leo a diam sollicitudin
-          tempor
-          id eu nisl.
-        </p>
-      </div>
-
-      <div id="sub-section-1-header-2">
-        <h3>1.2 Sub-section Header 2</h3>
-        <p>
-          Fermentum dui faucibus in ornare quam viverra orci. Donec ultrices tincidunt arcu non sodales. A diam maecenas
-          sed enim ut sem viverra. Semper viverra nam libero justo laoreet sit. Mi sit amet mauris commodo quis. Auctor
-          augue mauris augue neque gravida in fermentum et. Auctor elit sed vulputate mi sit amet. Maecenas pharetra
-          convallis posuere morbi leo urna. Sem nulla pharetra diam sit amet nisl. Id nibh tortor id aliquet lectus.
-          Nibh
-          nisl condimentum id venenatis a condimentum vitae sapien. Convallis posuere morbi leo urna molestie at
-          elementum.
-        </p>
-
-        <!-- This is an example of how you might use the image component -->
-        <image-component tag="image" source="assets/requirement.png"
-          subtitle="Image 1: iDP suggested pathway"></image-component>
-      </div>
-    </div>
-
-
-    <br />
-    <br />
-    <sl-divider></sl-divider>
-    <div>
-      <div id="section-header-2">
-        <h2>2. Section Header 2</h2>
-        <p>
-          Ornare arcu dui vivamus arcu felis bibendum ut tristique et. Mi proin sed libero enim sed faucibus turpis in
-          eu. Odio ut sem nulla pharetra diam sit. Nibh cras pulvinar mattis nunc sed blandit libero. Lacus sed viverra
-          tellus in hac habitasse platea dictumst vestibulum. At augue eget arcu dictum varius duis. Mauris ultrices
-          eros in cursus turpis massa (Lindberg, 1967). Libero nunc consequat interdum varius sit amet mattis. Ut ornare
-          lectus sit amet est placerat in egestas erat. Elementum curabitur vitae nunc sed. Proin nibh nisl condimentum
-          id venenatis a condimentum vitae sapien (Chamberlin et al., 2008). Vitae tempus quam pellentesque nec nam
-          aliquam sem.
-        </p>
-      </div>
-
-      <div id="sub-section-2-header-1">
-        <h3>2.1. Sub-section Header 1</h3>
-        <p>
-          Pellentesque nec nam aliquam sem et tortor consequat. Et netus et malesuada fames ac turpis egestas maecenas.
-          Eu tincidunt tortor aliquam nulla facilisi. Nunc aliquet bibendum enim facilisis gravida. Elementum pulvinar
-          etiam non quam lacus (Moll et al., 2011; Parker & Fox, 2010). Blandit cursus risus at ultrices mi. Arcu dui
-          vivamus arcu felis bibendum ut tristique. Porttitor rhoncus dolor purus non enim praesent elementum facilisis.
-          Mauris in aliquam sem fringilla. Non quam lacus suspendisse faucibus. Tristique senectus et netus et malesuada
-          fames ac. <a href="#image">Link to the image above</a>
-        </p>
-
-        <!-- This is an example of how you might use the video component -->
-        <video-component tag="rick" source="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          subtitle="Video: Never gonna give you up?"></video-component>
-      </div>
-
-      <div id="sub-section-2-header-2">
-        <h3>2.2. Sub-section Header 2</h3>
-        <p>
-          Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Dignissim convallis aenean et tortor at
-          risus viverra adipiscing. Facilisi nullam vehicula ipsum a arcu cursus. Adipiscing elit pellentesque
-          habitant
-          morbi tristique senectus et netus. Turpis massa tincidunt dui ut ornare lectus. Suspendisse sed nisi lacus
-          sed. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Ut ornare lectus sit amet est
-          placerat in egestas. Magna fringilla urna porttitor rhoncus. Imperdiet dui accumsan sit amet.
-        </p>
-
-        <!-- This is an example of how you might use the table component -->
-        <table-component subtitle="Table: Demo table">
-          <div id="table-1"></div>
-        </table-component>
-      </div>
-    </div>
-
-    <!-- This is an example of how you can use the references component to create references -->
-    <div id="references" class="references">
-      <sl-divider></sl-divider>
-      <h2>References</h2>
-      <ul>
-        <li>
-          Brody, J. E. (2007, December 11). Mental reserves keep brain agile. The New York Times. Retrieved from
-          http://www.dowjones.com/factiva/
-        </li>
-        <li>
-          Chamberlin, J., Novotney, A., Packard, E., & Price, M. (2008, May). Enhancing worker well-being: Occupational
-          health psychologists convene to share their research on work, stress, and health. Monitor on Psychology,
-          39(5), 26-29.
-        </li>
-        <li>
-          Jones, T. J., & Fields, N. (2003). Emotional quotient and personality. E-Journal of Applied Psychology, 2(2),
-          38-45. Retrieved from http://ejournalappliedpsyc/index.php/ejap
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- This is the code to display the scroll to top button for ergonomic -->
-  <!-- You can leave it as it is, or if you don't like its aesthetics you can also just delete it, -->
-  <!-- but it might reduce the user experience. -->
-  <sl-button class="scroll-to-top" variant="primary" size="medium" circle onclick="scrollToTop()">
-    <sl-icon name="arrow-up" label="Settings"></sl-icon>
-  </sl-button>
-
-  <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-  <script type="module" src="./components/table-component/table-component.js"></script>
+</div>
 </body>
-
 </html>
